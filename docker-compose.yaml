@@ -1,0 +1,23 @@
+services:
+  ultralyticsapi:
+    image: hdnh2006/ultralyticsapi
+    container_name: ultralyticsapi
+    ipc: host
+    networks:
+      - ultralyticsnet
+    volumes:
+      - ./weights:/weights
+    ports:
+      - "5000:5000"
+    entrypoint: /bin/bash
+    command: |
+      -c '
+      set -e
+      yolo export task=detect model=/weights/yolo11s.pt format=openvino imgsz=640 simplify=True batch=1 half=True device=cpu &&
+      python predict_api.py --weights /weights/yolo11s_openvino_model --imgsz 640 --port 5000 --half True --device cpu
+      '
+    restart: unless-stopped
+
+networks:
+  ultralyticsnet:
+    driver: bridge
