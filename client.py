@@ -51,3 +51,25 @@ with open(file_path, "rb") as f:
     response = requests.post(url, files={"myfile": f}, data=params, verify=False)
 
 print(response.content)
+
+
+# ====================== Send PIL image ===================== #
+
+import requests
+import io
+from PIL import Image
+import uuid
+
+
+pil_img = Image.open("data/images/ppe.png")
+buf = io.BytesIO()
+pil_img.save(buf, format='JPEG')
+buf.seek(0)
+files = {'myfile': (f'image_{str(uuid.uuid1())}.jpg', buf, 'image/jpeg')}
+params = {
+    'save_txt': 'T'
+}
+
+r = requests.post('http://localhost:5000/predict', files=files, data=params, verify=False)
+
+print(r.content)
