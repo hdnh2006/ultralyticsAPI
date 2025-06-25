@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="450" src="assets/Flask_logo.svg">
+  <img width="450" src="https://raw.githubusercontent.com/hdnh2006/ultralyticsAPI/refs/heads/main/assets/Flask_logo.svg">
 </div>
 
 # Ultralytics Flask API for detection and segmentation
@@ -10,7 +10,7 @@
   </a>
 </div>
 
-![Screen GIF](assets/screen.gif)
+![Screen GIF](https://raw.githubusercontent.com/hdnh2006/ultralyticsAPI/refs/heads/main/assets/screen.gif)
 
 This code is based on the Ultralytics repo and it has all the functionalities that the original code has:
 - Different source: images, videos, webcam, RTSP cameras.
@@ -74,10 +74,10 @@ Just open your favorite browser and go to 0.0.0.0:5000 and intuitevely load the 
 
 The API will return the image or video labeled.
 
-![Alt text](assets/zidane_bbox.png)
+![Alt text](https://raw.githubusercontent.com/hdnh2006/ultralyticsAPI/refs/heads/main/assets/zidane_bbox.png)
 
 All tasks are supported, for pose estimation, resutls should be as follow:
-![Zidane pose](assets/zidane_pose.png)
+![Zidane pose](https://raw.githubusercontent.com/hdnh2006/ultralyticsAPI/refs/heads/main/assets/zidane_pose.png)
 
 
 ### Call from terminal or python script
@@ -107,7 +107,7 @@ b'{"results": [{"name": "person", "class": 0, "confidence": 0.9490957260131836, 
 - [ ] Return txt values for videos
 - [ ] save folder according to task: detect, pose, segment, ...
 - [ ] Support any other model: SAM, RTDETR, NAS.
-- [ ] Docker files
+- [X] Docker files
 - [ ] Improve index template
 
 
