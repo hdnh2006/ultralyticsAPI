@@ -6,7 +6,8 @@ services:
     networks:
       - ultralyticsnet
     volumes:
-      - ultralytics-raw:/usr/src/app/data/
+      - ./weights:/weights                # Mounts local weights folder
+      - ultralytics-raw:/usr/src/app/data # Mounts named Docker volume for data
     ports:
       - "5000:5000"
     entrypoint: /bin/bash
